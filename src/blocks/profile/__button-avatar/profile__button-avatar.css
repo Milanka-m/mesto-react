@@ -1,0 +1,16 @@
+.profile__button-avatar {
+  margin: 0;
+  padding: 0;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 0;
+  background-color: transparent;
+ /*  position: relative; */
+}
+
+.profile__button-avatar:active, .profile__button-avatar:focus {
+  outline: none;
+}

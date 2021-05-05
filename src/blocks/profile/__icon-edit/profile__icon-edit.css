@@ -1,0 +1,11 @@
+.profile__icon-edit {
+  background-image: url(../../../images/icon-button-edit.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@media screen and (max-width: 520px) {
+  .profile__icon-edit {
+    background-size: 7.5px auto;
+  }
+}

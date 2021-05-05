@@ -1,0 +1,28 @@
+.profile__button-edit {
+  width: 24px;
+  height: 24px;
+  border: 1px solid #fff;
+  box-sizing: border-box;
+  margin-left: 18px;
+  margin-top: 13px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.profile__button-edit:hover {
+  opacity: .6;
+}
+
+/* убрали стили по умолчанию для кнопки при нажатии */
+.profile__button-edit:active, .profile__button-edit:focus {
+  border-color: #71b7f0;
+  outline: none;
+}
+
+@media screen and (max-width: 520px) {
+  .profile__button-edit {
+    width: 18px;
+    height: 18px;
+    margin: 10px;
+  }
+}

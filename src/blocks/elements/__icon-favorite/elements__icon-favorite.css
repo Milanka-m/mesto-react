@@ -1,0 +1,20 @@
+.elements__icon-favorite {
+  width: 22px;
+  height: 19px;
+  text-decoration: none;
+  margin: 0;
+  background-image: url(../../../images/icon-favorite-bord.svg);
+  background-size: cover;
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+}
+
+.elements__icon-favorite:hover {
+  opacity: .5;
+}
+
+.elements__icon-favorite:active, .elements__icon-favorite:focus {
+  background-size: cover;
+  outline: none;
+}

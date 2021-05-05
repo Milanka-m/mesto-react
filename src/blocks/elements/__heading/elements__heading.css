@@ -1,0 +1,17 @@
+.elements__heading {
+  max-width: 190px;
+  font-weight: 900;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  color: #000;
+  white-space: nowrap; /*запрещаем перенос строк*/
+  overflow: hidden; /*обрезаем всё, что не помещается в область*/
+  text-overflow: ellipsis; /*добавляем многоточие*/
+  margin: 0;
+}
+
+@media screen and (min-width: 551px) and (max-width: 660px) {
+  .elements__heading {
+    max-width: 130px;
+  }
+}
