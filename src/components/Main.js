@@ -39,6 +39,8 @@ function Main({ onEditAvatar, onEditProfile, onAddPlace, onCardClick, userAvatar
           {cards.map(card => {
             return (
               <Card card={card}
+              // каждому элементу из массива карточек должен задаваться key
+              key={card._id}
               onCardClick={onCardClick} />
             )
           })}
