@@ -126,24 +126,25 @@ class Api {
     });
   }
 
-  editAvatar(data) {
-    return fetch(`${this._address}/v1/${this._groupID}/users/me/avatar`, {
-      method: 'PATCH',
-      headers: {
-        authorization: this._token,
-        'Content-type': 'application/json'
-      },
-      body: JSON.stringify({
-        avatar: data.link
-      })
-    })
-      .then((response) => { 
-        if(response.ok) { 
-          return response.json(); 
-       } 
-       return Promise.reject(`Ощибка ${response.status}`); 
-      }); 
-  }
+  editAvatar({avatar}) { 
+    return fetch(`${this._address}/v1/${this._groupID}/users/me/avatar`, { 
+      method: 'PATCH', 
+      headers: { 
+        authorization: this._token, 
+        'Content-type': 'application/json' 
+      }, 
+      body: JSON.stringify({ 
+        avatar: avatar, 
+      }) 
+    }) 
+      .then((response) => {  
+        if(response.ok) {  
+          return response.json();  
+       }  
+       return Promise.reject(`Ощибка ${response.status}`);  
+      });  
+  } 
+ 
 
 }
 
