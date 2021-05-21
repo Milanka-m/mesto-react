@@ -7,6 +7,13 @@ function AddPlacePopup ({ onAddPlace, isOpen, onClose }) {
   const [nameCard, setNameCard] = React.useState('');
   const [linkCard, setLinkCard] = React.useState('');
 
+  React.useEffect(() => {
+    if(isOpen) {
+      setNameCard('');
+      setLinkCard('');
+    }
+  }, [isOpen]); 
+
   // Обработчик изменения инпута namecard обновляет стейт
   function handleChangeNameCard(e) {
     setNameCard(e.target.value);
@@ -25,9 +32,6 @@ function AddPlacePopup ({ onAddPlace, isOpen, onClose }) {
       name: nameCard,
       link: linkCard
     });
-    // очистка полей
-    setNameCard('');
-    setLinkCard('');
   }
 
 

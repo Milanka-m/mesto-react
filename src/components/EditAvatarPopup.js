@@ -5,6 +5,13 @@ function EditAvatarPopup ({ onUpdateAvatar, isOpen, onClose }) {
   // реф для получения прямого доступа к полю link
   const avatarRef = React.useRef();
 
+  React.useEffect(() => {
+    if(isOpen) {
+      avatarRef.current.value = '';
+    }
+  }, [isOpen]); 
+  
+
   // Обработчик отправки формы
   function handleSubmit(e) {
     e.preventDefault();
