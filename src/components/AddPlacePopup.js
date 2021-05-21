@@ -10,13 +10,11 @@ function AddPlacePopup ({ onAddPlace, isOpen, onClose }) {
   // Обработчик изменения инпута namecard обновляет стейт
   function handleChangeNameCard(e) {
     setNameCard(e.target.value);
-    console.log(e.target.value);
   }
 
   // Обработчик изменения инпута linkCard обновляет стейт
   function handleChangeLinkCard(e) {
     setLinkCard(e.target.value);
-    console.log(e.target.value);
   } 
 
   // Обработчик отправки формы
@@ -27,7 +25,7 @@ function AddPlacePopup ({ onAddPlace, isOpen, onClose }) {
       name: nameCard,
       link: linkCard
     });
-    // очистка полей формы
+    // очистка полей
     setNameCard('');
     setLinkCard('');
   }

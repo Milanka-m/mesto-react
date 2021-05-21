@@ -21,7 +21,7 @@ function App() {
   const [selectedCard, setSelectedCard] = React.useState({});
 
   const [currentUser, setCurrentUser] = React.useState('');
-  const [currentCard, setCurrentCard] = React.useState('');
+  const [currentCard, setCurrentCard] = React.useState({});
 
   const [cards, setCards] = React.useState([]); 
   
@@ -41,22 +41,24 @@ function App() {
     const isLiked = card.likes.some(i => i._id === currentUser._id);
     if (!isLiked) {
       // Отправляем запрос в API и получаем обновлённые данные карточки
-      api.addLikeCard(card._id, !isLiked).then((newCard) => {
-        setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
-      });
+      api.addLikeCard(card._id, !isLiked)
+        .then((newCard) => {
+          setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
+        })
+        .catch(err => console.log(err))
     } else {
-          api.removeLikeCard(card._id, isLiked).then((newCard) => {
-            setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
-          });
+          api.removeLikeCard(card._id, isLiked)
+            .then((newCard) => {
+              setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
+            })
+            .catch(err => console.log(err))
         }
   } 
 
   // функция удаления карточки
   function handleCardDelete(card) {
-    // Снова пределяем, являемся ли мы владельцем текущей карточки
-    const isOwn = card.owner._id === currentUser._id;
     // Отправляем запрос в API и получаем обновлённые данные карточки
-    api.removeCard(card._id, !isOwn)
+    api.removeCard(card._id)
       .then(() => {
         setCards((state) => state.filter((c) => c._id !== card._id))
       });
@@ -110,8 +112,8 @@ function App() {
   // Обработчик api запроса для обновления аватара
   function handleUpdateAvatar({avatar}) {
     api.editAvatar({avatar})
-      .then(({avatar}) => {
-        currentUser.avatar = avatar;
+      .then((userData) => {
+        setCurrentUser(userData);
         closeAllPopups();
         })
       .catch(err => console.log(err))

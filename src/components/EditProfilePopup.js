@@ -24,13 +24,11 @@ function EditProfilePopup ({ onUpdateUser, isOpen, onClose }) {
   // Обработчик изменения инпута name, обновляет стейт
   function handleChangeName(e) {
     setName(e.target.value);
-    console.log(e.target.value);
   }
 
   // Обработчик изменения инпута about, обновляет стейт
   function handleChangeDescription(e) {
     setDescription(e.target.value);
-    console.log(e.target.value);
   } 
 
   // Обработчик отправки формы
@@ -41,9 +39,6 @@ function EditProfilePopup ({ onUpdateUser, isOpen, onClose }) {
       name: name,
       about: description
     });
-    // очистка полей формы
-    setName('');
-    setDescription('');
   }
 
   return (

@@ -4,11 +4,10 @@ import PopupWithForm from './PopupWithForm';
 function EditAvatarPopup ({ onUpdateAvatar, isOpen, onClose }) {
   // реф для получения прямого доступа к полю link
   const avatarRef = React.useRef();
- 
+
   // Обработчик отправки формы
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(avatarRef.current.value);
     // Передаём значение рефа во внешний обработчик через пропс
     onUpdateAvatar({
       avatar: avatarRef.current.value

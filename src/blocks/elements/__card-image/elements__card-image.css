@@ -4,6 +4,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 571px) and (max-width: 1000px) {
