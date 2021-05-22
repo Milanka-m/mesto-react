@@ -14,7 +14,7 @@ function EditProfilePopup ({ onUpdateUser, isOpen, onClose }) {
   // его данные будут использованы в управляемых компонентах.
   // в форму вставяться текущие значения пользователя
    React.useEffect(() => {
-    if(currentUser !== '') {
+    if(Object.keys(currentUser).length) {
       setName(currentUser.name);
       setDescription(currentUser.about);
     }

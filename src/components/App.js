@@ -20,7 +20,7 @@ function App() {
   const [isImagePopupOpen, setIsImagePopupOpen] = React.useState(false);
   const [selectedCard, setSelectedCard] = React.useState({});
 
-  const [currentUser, setCurrentUser] = React.useState('');
+  const [currentUser, setCurrentUser] = React.useState({});
   const [currentCard, setCurrentCard] = React.useState({});
 
   const [cards, setCards] = React.useState([]); 
@@ -47,12 +47,12 @@ function App() {
         })
         .catch(err => console.log(err))
     } else {
-          api.removeLikeCard(card._id, isLiked)
-            .then((newCard) => {
-              setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
-            })
-            .catch(err => console.log(err))
-        }
+            api.removeLikeCard(card._id, isLiked)
+              .then((newCard) => {
+                setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
+              })
+              .catch(err => console.log(err))
+           }
   } 
 
   // функция удаления карточки
@@ -61,7 +61,8 @@ function App() {
     api.removeCard(card._id)
       .then(() => {
         setCards((state) => state.filter((c) => c._id !== card._id))
-      });
+      })
+      .catch(err => console.log(err))
   }
 
   
